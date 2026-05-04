@@ -1,0 +1,127 @@
+{
+  "movement": 1,
+  "key": "F minor",
+  "total_measures": 151,
+  "voice": "af_sarah",
+  "speed": 0.92,
+  "lang": "en-us",
+  "silence_pre_clip_ms": 500,
+  "silence_post_clip_ms": 1000,
+  "silence_between_cues_ms": 1500,
+  "clip_fade_in_ms": 300,
+  "clip_fade_out_ms": 500,
+  "bumper": {
+    "vo": "This commentary is brought to you by Fugual dot com.",
+    "silence_after_ms": 1000
+  },
+  "intro": {
+    "vo": "Movement one. F minor, Allegro con brio. This is the shortest and most compressed first movement Beethoven ever wrote for string quartet , 151 measures that cover more harmonic ground than most movements twice its length. The home key is F minor, and the music will spend almost the entire exposition trying to escape it , landing instead in D-flat major, the flattest possible destination. What you are about to hear is a movement that states its entire harmonic character in its first six bars and then spends the remaining 145 working out the consequences. Let's start.",
+    "silence_after_ms": 1500
+  },
+  "cues": [
+    {
+      "cue_id": "MV1_01",
+      "label": "Opening unison descent",
+      "section": "P Theme",
+      "measure_start": 1,
+      "measure_end": 2,
+      "clip_measures": [1, 2],
+      "vo_pre": "The quartet opens in unison , all four instruments playing the same single line, no chords, no harmony. This descending figure moves through eight notes drawn from F minor, the home key. It is simultaneously a melody and a complete summary of the harmonic world you are about to enter.",
+      "vo_post": "That bare unison is not a conventional opening. It collapses four independent voices into one. The quartet begins by denying itself its own texture , and that austerity will define everything that follows."
+    },
+    {
+      "cue_id": "MV1_02",
+      "label": "Registral leap and dominant suspension",
+      "section": "P Theme",
+      "measure_start": 3,
+      "measure_end": 5,
+      "clip_measures": [3, 5],
+      "vo_pre": "The first violin leaps two octaves upward to a high C. Beneath it, the other three instruments hold a bare open fifth on C , the dominant, the pitch of maximum tension in F minor. The music is suspended, waiting for resolution.",
+      "vo_post": "That open fifth is deliberately unresolved. In F minor, C is the dominant , the note that pulls most urgently back toward home. The question is not whether it will resolve, but where."
+    },
+    {
+      "cue_id": "MV1_03",
+      "label": "Deceptive cadence to D-flat major",
+      "section": "P Theme",
+      "measure_start": 5,
+      "measure_end": 7,
+      "clip_measures": [5, 7],
+      "vo_pre": "Everything in the last few bars pointed toward a landing on F minor. The dominant has been held, the tension has been building. Listen to where it actually resolves.",
+      "vo_post": "That was D-flat major , a deceptive cadence. The harmony promised F minor and arrived somewhere entirely different. D-flat is not a detour. It will turn out to be the destination the entire exposition is heading toward."
+    },
+    {
+      "cue_id": "MV1_04",
+      "label": "Secondary dominant preparation",
+      "section": "P Theme / TR",
+      "measure_start": 16,
+      "measure_end": 18,
+      "clip_measures": [16, 18],
+      "vo_pre": "After ten bars of circling around the dominant, Beethoven sharpens the tension further. A chord built on G , the dominant of the dominant, a secondary dominant , resolves immediately to C major. This two-step intensification is the launchpad for the transition.",
+      "vo_post": "That progression , G seventh resolving to C , compresses a great deal of harmonic energy into two beats. The dominant of F minor is now fully prepared, and the music moves forward with considerable force."
+    },
+    {
+      "cue_id": "MV1_05",
+      "label": "S theme in D-flat major",
+      "section": "S Theme",
+      "measure_start": 21,
+      "measure_end": 24,
+      "clip_measures": [21, 24],
+      "vo_pre": "The second theme arrives , lyrical, thinly scored, the first moment of genuine repose. But notice the key. This is D-flat major, not the home key of F minor, not the relative major. Beethoven has travelled to the flattest possible destination.",
+      "vo_post": "D-flat major is the submediant of F minor , the flattened sixth degree raised to the status of a full secondary tonic. Classical convention would place this theme in the relative major, A-flat. Beethoven goes a step further flat. The effect is darker, more remote, and strangely inevitable."
+    },
+    {
+      "cue_id": "MV1_06",
+      "label": "Chromatic shift from D-flat to D major",
+      "section": "C Section",
+      "measure_start": 37,
+      "measure_end": 40,
+      "clip_measures": [37, 40],
+      "vo_pre": "The second theme has settled into D-flat major. All four voices are about to shift simultaneously , not by a gradual modulation, but by a direct chromatic cut. Listen for the moment the floor moves.",
+      "vo_post": "That was D major , a semitone above D-flat, sharing no common tones with it. Beethoven achieves the shift through parallel motion in all four voices at once, eliminating any smooth voice-leading. The contrast is violent: four flats to four sharps in a single chord. Maximum brightness against maximum darkness."
+    },
+    {
+      "cue_id": "MV1_07",
+      "label": "Development opens in F major",
+      "section": "Development",
+      "measure_start": 60,
+      "measure_end": 63,
+      "clip_measures": [60, 63],
+      "vo_pre": "The development section opens , and the key signature has not changed, but something has. The home key is F minor. What you are about to hear is F major. Same tonic pitch, opposite mode. The darkness lifts, briefly.",
+      "vo_post": "F major is the parallel major of F minor , same root, but the minor third becomes a major third. This is modal mixture: Beethoven borrows the tonic but changes its character. The brightness here is real but unstable. The dissolution begins almost immediately."
+    },
+    {
+      "cue_id": "MV1_08",
+      "label": "Recapitulation , compressed return",
+      "section": "Recapitulation",
+      "measure_start": 82,
+      "measure_end": 85,
+      "clip_measures": [82, 85],
+      "vo_pre": "The opening gesture returns , the same unison descent, the same austerity. This is the recapitulation. But where the exposition gave seventeen bars of this material, the recapitulation gives four. Recognition arrives, and is immediately overtaken.",
+      "vo_post": "That compression is characteristic of this movement's economy. The recapitulation does not dwell on return. It acknowledges the opening and moves directly toward resolution , which, in this movement, will take an unexpected form."
+    },
+    {
+      "cue_id": "MV1_09",
+      "label": "Second theme reharmonised to F major",
+      "section": "Recapitulation S",
+      "measure_start": 86,
+      "measure_end": 97,
+      "clip_measures": [86, 97],
+      "vo_pre": "The second theme returns. In the exposition it was in D-flat major. Listen to where it arrives this time , the harmony shifts beneath a held note in the first violin, and the key gradually transforms.",
+      "vo_post": "That was F major , the parallel major of the home key. The first violin held A-flat throughout: the fifth of D-flat major, the third of F major. That single common tone enabled the entire reharmonisation. Beethoven's answer to the expositional problem is not to return to F minor, but to transform the mode of home itself."
+    },
+    {
+      "cue_id": "MV1_10",
+      "label": "Coda , unison return and bare final octave",
+      "section": "Coda",
+      "measure_start": 146,
+      "measure_end": 151,
+      "clip_measures": [146, 151],
+      "vo_pre": "The opening gesture returns one final time , the same unison descent, inside the coda. The movement is about to end exactly as it began: four instruments, one voice, no harmony. Listen for what is withheld at the very last moment.",
+      "vo_post": "A bare F octave. No chord, no resolution into major, no final warmth. The movement ends in the same austere unison it began with , the long chromatic journey of 151 measures arriving back at open F minor, unredeemed. That withholding is the movement's final statement."
+    }
+  ],
+  "outro": {
+    "silence_before_ms": 2000,
+    "vo": "The first movement ends where it began , bare, unharmonised, in F minor. The D-flat that dominated the exposition has dissolved. The parallel major that briefly illuminated the recapitulation has closed. What remains is the open F octave, the same sound that opened the movement, now carrying the weight of everything that came between. The second movement follows without pause , attacca. The chord that opens it is the chord that just closed this one."
+  }
+}
