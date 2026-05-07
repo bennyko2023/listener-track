@@ -1,0 +1,162 @@
+{
+  "movement": 4,
+  "key": "F minor to F major",
+  "total_measures": 176,
+  "voice": "af_sarah",
+  "speed": 0.92,
+  "lang": "en-us",
+  "silence_pre_clip_ms": 500,
+  "silence_post_clip_ms": 1000,
+  "silence_between_cues_ms": 1500,
+  "clip_fade_in_ms": 300,
+  "clip_fade_out_ms": 500,
+  "bumper": {
+    "vo": "This commentary is brought to you by Fugual dot com.",
+    "silence_after_ms": 1000
+  },
+  "intro": {
+    "vo": "Movement four. F minor moving to F major. The third movement ended on a bare unison F , four instruments, one pitch, no chord, no warmth. This movement opens by reinterpreting that silence as a preparation. What follows is the quartet's attempt to answer the question it has been asking since the first bar of the first movement: whether the darkness of F minor can become the brightness of F major. The answer takes 175 measures, and it has been in preparation for the entire quartet.",
+    "silence_after_ms": 1500
+  },
+  "cues": [
+    {
+      "cue_id": "MV4_01",
+      "label": "Opening chord reframes the silence",
+      "section": "Introduction",
+      "measure_start": 0,
+      "measure_end": 1,
+      "vo_pre": "The first sound of this movement is a chord. Listen to what it does to what just ended.",
+      "vo_post": "That is the dominant of F minor , the chord of maximum tension pointing toward home, with the leading tone in the lowest voice. The bare F the third movement ended on is instantly recast: not an arrival, but a preparation. The ending was not an ending. It was a held breath."
+    },
+    {
+      "cue_id": "MV4_02",
+      "label": "Larghetto, dominant suspended",
+      "section": "Introduction",
+      "measure_start": 1,
+      "measure_end": 7,
+      "vo_pre": "The introduction settles onto the dominant and stays there, the upper voices pressing in from all sides without resolving.",
+      "vo_post": "B flat and B natural alternate around C from below while D flat pushes in from above. The introduction refuses to resolve. It passes directly into the next section still suspended, the unresolved pair crossing the tempo boundary unchanged , the new tempo born from inside the old uncertainty."
+    },
+    {
+      "cue_id": "MV4_03",
+      "label": "Allegretto begins, cello completes what the introduction withheld",
+      "section": "Theme 1",
+      "measure_start": 8,
+      "measure_end": 13,
+      "vo_pre": "The tempo doubles. The upper voices continue their agitation. Listen for the cello underneath.",
+      "vo_post": "The cello descends G, F, E natural, F , supplying the bass motion the introduction never made. The dominant finally moves to the tonic, but quietly, in the lowest voice, while the upper voices continue churning above. The resolution is delivered in the bass and barely announced."
+    },
+    {
+      "cue_id": "MV4_04",
+      "label": "C pedal, pressure without resolution",
+      "section": "Theme 1",
+      "measure_start": 14,
+      "measure_end": 20,
+      "vo_pre": "The cello locks onto C and holds. Above it, the upper voices circle through every chromatic neighbour of that pitch.",
+      "vo_post": "Seven measures of the cello immovable on C while the violins and viola press against it from all sides , E natural, F, G, A flat, B flat, B natural, everything but a resolution. This is not a harmony building toward a cadence. It is sustained pressure, held past the point where normal music would release it."
+    },
+    {
+      "cue_id": "MV4_05",
+      "label": "First chromatic ascent, four-voice D flat unison",
+      "section": "Theme 1",
+      "measure_start": 19,
+      "measure_end": 21,
+      "vo_pre": "The first violin is about to climb through every semitone in the octave. No other voice joins it.",
+      "vo_post": "All twelve pitch classes in a single line, from low C to D flat six. The other three instruments reduce to a single C before the whole quartet converges on D flat simultaneously in four registers. D flat is the note one half step above the dominant C , the most tense possible neighbour, as close as you can get without arriving. Then complete silence."
+    },
+    {
+      "cue_id": "MV4_06",
+      "label": "Episode assembles, then the diminished seventh locks in",
+      "section": "Episode",
+      "measure_start": 30,
+      "measure_end": 39,
+      "vo_pre": "The dominant pedal breaks. Over the next ten measures a new texture assembles itself, one voice at a time, before locking into a single sustained chord.",
+      "vo_post": "That locked chord , B natural, D natural, F, A flat tremolando in the middle voices with sharp accented attacks above and below , is the same fully diminished seventh that opened the third movement and functioned as its hinge throughout. Its return here carries the same weight: a suspended, timeless harmonic state from which no single resolution is obvious."
+    },
+    {
+      "cue_id": "MV4_07",
+      "label": "Second chromatic ascent, arrives on G",
+      "section": "Episode",
+      "measure_start": 43,
+      "measure_end": 50,
+      "vo_pre": "A second chromatic ascent launches in the first violin, the lower voices falling silent.",
+      "vo_post": "This one arrives on G , a step closer to a functional goal than the D flat of the first ascent. The bass settles onto C in the measures that follow, the cello spelling out the dominant seventh chord on the way down before the main theme returns."
+    },
+    {
+      "cue_id": "MV4_08",
+      "label": "Theme returns, A natural appears in the cello",
+      "section": "Theme 1 return",
+      "measure_start": 51,
+      "measure_end": 67,
+      "vo_pre": "The main theme returns in F minor. But listen for the cello at measure 58.",
+      "vo_post": "A natural. A single isolated pitch in the cello, the major third above F , the note that has been suppressed as A flat throughout the entire quartet. It appears once and withdraws immediately, like a light briefly visible through a closed door. The quartet has been circling this pitch for three movements."
+    },
+    {
+      "cue_id": "MV4_09",
+      "label": "Second diminished seventh plateau, leading tone isolated",
+      "section": "Theme 1 return",
+      "measure_start": 83,
+      "measure_end": 92,
+      "vo_pre": "The diminished seventh returns, same texture, same duration as before. But this time it changes halfway through.",
+      "vo_post": "The first half repeats the earlier plateau exactly. Then the chord shifts , the voices rearranging until by measure 88 all of them have dropped away except one: E natural, the leading tone of F minor, the single pitch that most urgently wants to resolve to F, held alone. Then measure 90 delivers it: C major, the dominant of F minor, the cleanest arrival the Allegretto has produced."
+    },
+    {
+      "cue_id": "MV4_10",
+      "label": "Third chromatic ascent, arrives on C above the tonic",
+      "section": "Theme 1 return",
+      "measure_start": 93,
+      "measure_end": 96,
+      "vo_pre": "A third chromatic ascent begins in the first violin.",
+      "vo_post": "This one reaches C six , the dominant pitch at the ceiling of the movement's range. The first ascent arrived on D flat, one step above the dominant, unable to reach it. The second arrived on G, the dominant of the relative minor. This one arrives on C itself, with the tonic harmony underneath. The three ascents are a trajectory , each one closer to resolution than the last."
+    },
+    {
+      "cue_id": "MV4_11",
+      "label": "Striving, outer voices arch against each other",
+      "section": "Striving",
+      "measure_start": 108,
+      "measure_end": 119,
+      "vo_pre": "The texture changes entirely. The first violin begins a series of rising arches, each reaching higher than the last. Listen for the cello below, moving in its own arc two measures behind.",
+      "vo_post": "Violin peaks climb , A flat, B flat, C six. The cello rises from D flat to B flat, steps down to A natural, rises again, descends. Two arches offset by two measures, straining against each other rather than moving in simple contrary motion. And A natural keeps appearing in the cello , the major third of F, slipping in and withdrawing, each time a little more insistent."
+    },
+    {
+      "cue_id": "MV4_12",
+      "label": "Exhaustion, collapse and resumption alternating",
+      "section": "Striving",
+      "measure_start": 120,
+      "measure_end": 131,
+      "vo_pre": "The effort begins to fail. Listen for what happens between the bursts.",
+      "vo_post": "Measure 120: first violin alone, the three lower voices gone. Measure 121: all four voices briefly on the dominant, then collapse again. The music alternates between short bursts of energy and sudden voids, each resumption briefer. By measure 130 all three active voices have converged on the same semitone figure , F to E natural and back , stated together before falling silent. Measure 131 is three voices on a bare F unison. The same sound the third movement ended on. And then the second violin enters."
+    },
+    {
+      "cue_id": "MV4_13",
+      "label": "A natural enters, F major arrives",
+      "section": "Striving",
+      "measure_start": 132,
+      "measure_end": 132,
+      "vo_pre": "The second violin has been silent for several measures. Listen for what it adds to the bare F unison.",
+      "vo_post": "A natural. The viola moves from F to C simultaneously, the cello adds C below, and the three-voice unison becomes a complete F major triad. A natural , the pitch suppressed as A flat through four movements , enters here as a structural chord member for the first time. This is the moment the quartet has been building toward."
+    },
+    {
+      "cue_id": "MV4_14",
+      "label": "Allegro, key signature changes to F major",
+      "section": "Coda",
+      "measure_start": 133,
+      "measure_end": 140,
+      "vo_pre": "The tempo accelerates, the meter changes, and at measure 137 the key signature changes.",
+      "vo_post": "Four flats to one flat. F minor to F major. The first chord under the new signature is F, A natural, C , root position, unambiguous. The conversion of A flat to A natural, a single semitone raised, closes the tonal argument that has been open since the first movement. The brightness is not decorative. It is the structural answer to a question posed 151 measures before this movement even began."
+    },
+    {
+      "cue_id": "MV4_15",
+      "label": "All four voices converge on G, final approach",
+      "section": "Coda",
+      "measure_start": 170,
+      "measure_end": 175,
+      "vo_pre": "All four voices are about to land on the same pitch together, one step above the final tonic.",
+      "vo_post": "G in four registers simultaneously , the most emphatic pre-arrival gesture in the movement, all voices in unison a single step above home. Then F major root position, the cello resolving to F in the bass, A natural in two inner voices above. The final chord spans four octaves, F two to F six. Against the bare F unison that ended the third movement , no third, no fifth, mode unknown , this chord states the root and the major third and leaves no question open. The quartet is resolved."
+    }
+  ],
+  "outro": {
+    "silence_before_ms": 2000,
+    "vo": "The quartet ends on F major , four octaves, A natural voiced in two inner voices. The first movement opened on F minor, A flat suppressed inside a bare unison, the mode stated and immediately destabilised. Three movements of harmonic distance , D flat, G flat, diminished sevenths, unresolved dominants , all of it arrives here. One note raised by a semitone. A flat becomes A natural. F minor becomes F major. The Serioso ends not with a question but with the answer it has been building from the beginning."
+  }
+}

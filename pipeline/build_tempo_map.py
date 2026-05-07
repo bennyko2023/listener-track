@@ -46,6 +46,7 @@ def compute_time_at_offset(target_ql: float, segments: list) -> float:
 def build_tempo_map(mxl_path: Path, wav_path: Path, out_path: Path) -> None:
     try:
         import music21
+        from music21 import bar as m21bar
         from music21 import tempo as m21tempo
     except ImportError:
         sys.exit("music21 not installed. Run: pip install music21")
@@ -74,6 +75,45 @@ def build_tempo_map(mxl_path: Path, wav_path: Path, out_path: Path) -> None:
         end = tempos[i + 1][0] if i + 1 < len(tempos) else float("inf")
         segments.append((offset, end, bpm))
 
+    # Detect end-repeat barlines by inspecting measure barline attributes.
+    # music21 stores repeat barlines as Measure.leftBarline / .rightBarline,
+    # not as free-standing stream elements, so getElementsByClass(Repeat) returns
+    # nothing on a flattened score.
+    part0 = list(score.parts)[0]
+    raw_end_qls = sorted(set(
+        float(m.offset) + float(m.quarterLength)
+        for m in part0.getElementsByClass("Measure")
+        if isinstance(getattr(m, "rightBarline", None), m21bar.Repeat)
+        and m.rightBarline.direction == "end"
+    ))
+    start_qls = sorted(
+        float(m.offset)
+        for m in part0.getElementsByClass("Measure")
+        if isinstance(getattr(m, "leftBarline", None), m21bar.Repeat)
+        and m.leftBarline.direction == "start"
+    )
+    repeat_boundaries = []  # (end_ql, cumulative_extra_s)
+    repeat_individual = []  # (end_ql, individual_extra_s) — for spanning-clip detection
+    cumulative = 0.0
+    for end_ql in raw_end_qls:
+        start_ql = next((s for s in reversed(start_qls) if s < end_ql), 0.0)
+        extra_s = compute_time_at_offset(end_ql, segments) - compute_time_at_offset(start_ql, segments)
+        repeat_individual.append((end_ql, extra_s))
+        cumulative += extra_s
+        repeat_boundaries.append((end_ql, cumulative))
+    if repeat_boundaries:
+        print(f"Repeat boundaries (end_ql, cumulative_extra_s): {repeat_boundaries}")
+    else:
+        print("No repeat barlines found — timestamps unmodified")
+
+    def adjusted_time(offset_ql: float) -> float:
+        base = compute_time_at_offset(offset_ql, segments)
+        extra = 0.0
+        for boundary_ql, cum_extra in repeat_boundaries:
+            if offset_ql >= boundary_ql:
+                extra = cum_extra
+        return base + extra
+
     # Get measures from first part (violin I — all parts share the same measure grid)
     parts = list(score.parts)
     if not parts:
@@ -86,19 +126,15 @@ def build_tempo_map(mxl_path: Path, wav_path: Path, out_path: Path) -> None:
 
     print(f"Measures found: {len(measures)}")
 
-    # Build map: str(measure_number) -> seconds from score start
+    # Build map: str(measure_number) -> seconds from WAV start (repeat-adjusted)
     tempo_map = {}
     for m in measures:
-        mn = str(m.number)
-        t = compute_time_at_offset(float(m.offset), segments)
-        tempo_map[mn] = round(t, 4)
+        tempo_map[str(m.number)] = round(adjusted_time(float(m.offset)), 4)
 
     # Sentinel: start of (last_measure_number + 1) = end of last measure
     last_m = measures[-1]
     last_end_ql = float(last_m.offset) + float(last_m.quarterLength)
-    tempo_map[str(last_m.number + 1)] = round(
-        compute_time_at_offset(last_end_ql, segments), 4
-    )
+    tempo_map[str(last_m.number + 1)] = round(adjusted_time(last_end_ql), 4)
 
     # Apply leading silence offset from WAV
     if wav_path and wav_path.exists():
@@ -110,6 +146,18 @@ def build_tempo_map(mxl_path: Path, wav_path: Path, out_path: Path) -> None:
                 tempo_map[k] = round(tempo_map[k] + silence_s, 4)
     else:
         print("WAV not available — skipping silence detection")
+
+    # Embed repeat metadata for spanning-clip detection in extract_clips.py.
+    # base_end_s is the WAV time at which the first pass ends (silence-adjusted);
+    # extra_s is how many seconds that repeat adds.
+    silence_s_applied = silence_s if (wav_path and wav_path.exists()) else 0.0
+    tempo_map["_repeats"] = [
+        {
+            "base_end_s": round(compute_time_at_offset(end_ql, segments) + silence_s_applied, 4),
+            "extra_s": round(extra_s, 4),
+        }
+        for end_ql, extra_s in repeat_individual
+    ]
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w") as f:

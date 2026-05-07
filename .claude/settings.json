@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\data\\\\beethoven\\\\serioso\\\\products\\\\listener-track\" -Recurse)",
+      "Bash(Select-Object FullName, Length)",
+      "Read(//c/data/beethoven/serioso/**)",
+      "PowerShell(ls \"C:\\\\data\\\\beethoven\\\\serioso\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object FullName | Sort-Object FullName)",
+      "PowerShell(Get-ChildItem \"C:\\\\data\\\\beethoven\\\\serioso\" -Recurse | Where-Object { -not $_.PSIsContainer } | ForEach-Object { $_.FullName } | Sort-Object)",
+      "Bash(python -c \"import json; d=json.load\\(open\\('output/mv3/tempo_map.json'\\)\\); keys=list\\(d.keys\\(\\)\\); print\\(f'Total entries: {len\\(d\\)}'\\); print\\(f'Last 5 keys: {keys[-5:]}'\\); print\\(f'Key 41: {d[\\\\\"41\\\\\"]}'\\); print\\(f'Key 81: {d[\\\\\"81\\\\\"]}'\\); print\\(f'Key 207: {d.get\\(\\\\\"207\\\\\",\\\\\"MISSING\\\\\"\\)}'\\); print\\(f'Key 247: {d.get\\(\\\\\"247\\\\\",\\\\\"MISSING\\\\\"\\)}'\\)\")"
+    ]
+  }
+}

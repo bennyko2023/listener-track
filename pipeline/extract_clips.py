@@ -27,6 +27,8 @@ def extract_clips(
     with open(tempo_map_path) as f:
         tempo_map = json.load(f)
 
+    repeats = tempo_map.get("_repeats", [])
+
     fade_in_s = cues_data.get("clip_fade_in_ms", 300) / 1000.0
     fade_out_s = cues_data.get("clip_fade_out_ms", 500) / 1000.0
 
@@ -35,8 +37,13 @@ def extract_clips(
     short_clips = []
 
     for cue in cues_data["cues"]:
-        cue_id = cue["cue_id"]
-        m_start, m_end = cue["clip_measures"]
+        cue_id = cue.get("cue_id", "<unknown>")
+        if "clip_measures" in cue:
+            m_start, m_end = cue["clip_measures"]
+        elif "measure_start" in cue and "measure_end" in cue:
+            m_start, m_end = cue["measure_start"], cue["measure_end"]
+        else:
+            sys.exit(f"FAIL — cue '{cue_id}' has neither clip_measures nor measure_start/measure_end")
 
         key_start = str(m_start)
         key_end = str(m_end + 1)
@@ -48,6 +55,15 @@ def extract_clips(
 
         t_start = tempo_map[key_start]
         t_end = tempo_map[key_end]
+
+        # If this clip spans a repeat boundary (start is in the first pass,
+        # end is after the repeat resolves), shift t_start to the second-pass
+        # occurrence so the repeat is not included in the extracted clip.
+        for rep in repeats:
+            if t_start < rep["base_end_s"] and t_end > rep["base_end_s"] + rep["extra_s"]:
+                t_start += rep["extra_s"]
+                break
+
         duration = t_end - t_start
 
         if duration < 0.1:
