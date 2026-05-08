@@ -6,4 +6,5 @@
 __pycache__/
 *.pyc
 output/
+cues/
 "@ | Out-File -FilePath .gitignore -Encoding utf8
