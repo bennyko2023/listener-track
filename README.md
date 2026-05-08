@@ -117,3 +117,79 @@ python run_pipeline.py --cues cues_mv4.json --mscz IMSLP22095.mvt4.mscz --mxl IM
 ```
 
 `bumper.mp3` is generated once in Movement 1 and reused across all movements.
+
+---
+
+## Teaser pipeline
+
+Produces a single cross-movement promotional MP3 (`teaser.mp3`) from cues that span all four movements.
+Requires the per-movement WAVs to already exist — run all four movements first.
+
+```powershell
+python run_teaser.py
+```
+
+All arguments have defaults. Override as needed:
+
+```powershell
+python run_teaser.py `
+  --cues cues_teaser.json `
+  --mxl-dir C:\data\beethoven\serioso\score\mxl `
+  --output output/teaser/teaser.mp3
+```
+
+### Flags
+
+| Flag | Description |
+|------|-------------|
+| `--cues` | Teaser cues JSON filename (in `cues/`, default `cues_teaser.json`) |
+| `--mxl-dir` | Directory containing MXL files (default: `score/mxl/`) |
+| `--output` | Output MP3 path (default: `output/teaser/teaser.mp3`) |
+| `--no-cache` | Re-render all clips and VO even if cached |
+
+### How it differs from the per-movement pipeline
+
+- Adds `source_movements` to the cues JSON — maps each movement number to its MXL file
+- Each cue carries a `movement` field; clips are routed to the correct source WAV per cue
+- Tempo maps are reused from `output/mv{N}/tempo_map.json` if present, otherwise built on demand
+- Assembly is done in one pass with no intermediate assembled-cue files
+
+### Directory structure added
+
+```
+listener-track/
+  run_teaser.py
+  pipeline/
+    teaser_extract_clips.py   # multi-source clip extraction
+  cues/
+    cues_teaser.json
+  output/
+    teaser/
+      clips/                  # TEASER_01_clip.mp3 … TEASER_08_clip.mp3
+      vo/                     # voice-over segments
+      silences/               # generated silence fills
+      teaser.mp3              # final deliverable
+```
+
+### Teaser cues JSON — additional fields
+
+```json
+{
+  "movement": 0,
+  "source_movements": [
+    { "mv": 1, "file": "IMSLP22095_mvt1.mxl", "total_measures": 151 },
+    { "mv": 4, "file": "IMSLP22095_mvt4.mxl", "total_measures": 176 }
+  ],
+  "cues": [
+    {
+      "cue_id": "TEASER_01",
+      "movement": 1,
+      "clip_measures": [1, 2],
+      "vo_pre": "...",
+      "vo_post": "..."
+    }
+  ]
+}
+```
+
+All other fields (`voice`, `speed`, `bumper`, `intro`, `outro`, silence/fade params) are identical to the per-movement format.
